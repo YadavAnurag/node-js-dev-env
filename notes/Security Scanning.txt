@@ -1,0 +1,294 @@
+Security Scanning
+
+1.retire.js
+2.Node Security Platform
+	install nsp globally
+	>npm i -g nsp
+
+
+
+	book-checklist menifesto
+	package.json--- url=bit.ly/jsdevpackagejson
+
+BrowserSync -- Web Server for sharing work across LAN that gives dedicated ip
+			-- Remain works in sync in all clients
+
+To show work in progrss
+1. ngrok (more secure)
+2. localtunnel
+3. now
+4. Surge (only support static file)
+
+
+Localtunnel
+
+>lt --port 3000 subdomain anurag
+
+
+
+
+
+
+#Automation Option
+
+
+1. Grunt
+	1. First js task runner
+	2. Big chunck of json
+	3. Writes intermediary files btw steps in automation process
+	4. Has large ecosystem for plugin
+
+2. Gulp
+	1. Improves on Grunt's plugin
+	2. Focuses on in-memory streams which gulp call pipes
+	3. Pipes previous step task in next step
+	4. Faster than Grunt
+	5. Avoid writing to disk
+	6. configure via gulp file
+	7. Has large plugin ecosystem
+
+3. NPM Scripts
+	0. Use tool directly
+	1. Declared in package.json
+	2. Leverage your OS's command line
+	3. Directly use npm packages
+	4. Call seperate node scipts
+	5. convention-based pre/post hooks
+	6. No need for seperete plugin
+	7. Simpler debugging
+	8. Better docs
+	9. Easy to learn
+	10. Simple
+
+1.	>npm start
+		or
+	>npm run start
+
+2.	>npm test
+		or
+	>npm run test
+
+3. 	>npm-run-all --parallel script1 script2 script3....
+
+
+
+
+
+#JavaScript Versions
+    or
+ECMAScript Versions
+
+1. ES1 1997
+2. ES2 1998
+3. ES3 1999
+4. ES5 2009
+5. ES6/ES2015 2015
+6. ES7/ES2016 2016
+7. ES8/ES2017 2017
+
+
+
+
+
+#Transpilers(over more than 100)
+
+1. Babel
+  1.Allow all the new features of js
+  2.write Standardized js(Leverage entire js ecosys)
+  3.Tranpiles latest version of js down to ES5 so that you can use all of the new features
+  4.Use experimental features earlier
+  5.No type defs, annotaions required
+  6.ES6 Support are statically analyzable
+
+2. TypeScript
+  1.Superset ot js
+  2.Type annotaions
+  3.Enhanced autocompletion
+  4.Safer refactoring
+  5.Clearer intent
+  6. Additional non-Standard features
+  7.In react.js JSX syntax clashed with js syntax
+  8.ESLint doesn't support TypeScript
+
+3. Elm
+  1. Isn't js
+  2. Clean syntax no ;
+  3. Immutable data structure
+  4. Friendly errors
+  5. All errors are compile-time errors
+
+
+
+
+#Babel Configuration(there are two styles to configure)
+
+1. .babelrc(a seperate file in project's root)
+  1. It is not npm specific
+  2. It can also be used if a project is not npm based
+  3. Easier to read since isolated
+
+2. package.json
+  1. One less file in your project
+  2. Can be use in package.json by adding a new object "babel"
+
+
+
+#Transpiling Build Scripts
+Whether to transpile build script or to continue using ES5
+
+Use >babel-node Server.js
+to transpile your server.js code before passing it to node
+
+
+
+
+
+
+
+#Bundling
+
+Why?
+1. CommonJS doesn't work in web browsers
+2. Package project into file(s)
+
+Options
+1.Require.JS
+  1. First popular bunlder
+  2. Utilizes and helped popularize AMD pattern
+2.Browerify
+  1.The First bundler to reach mass adoption
+  2. Bundle npm packages for the web
+  3. Large plugin ecosystem(like minification, linting, Transpiling)
+3.Webpack
+  0. Configured via webpackconfig.js(place in the project's root)
+  1. Bundles more than just js(css,images, fonts, html)
+  2. Import CSS, images, etc like JS
+  3. Built in hot-reloading web server(from memory)
+  4. Bundle splitting
+  5. Webpack2 offers tree shaking
+4.Rollup
+  1. Tree Shaking(means it eliminates code that you are not using from the final bundle)
+  2. Faster loading prduction code
+  3. Quite new
+  4. Greate for library authors
+  5. Not hot reloading
+5. JSPM
+  1. Uses SystemJS, a Universal module loader
+  2. Can load modules at runtime
+  3. has its own package manager
+  4. Can install form npm, git
+
+
+
+
+
+#Module Formats
+1. IIFE(Immediately invoked function expression)
+2. Asynchronous Mode Definition(AMD)
+3. CommonJS(CJS)
+4. Universal Module Definition(UMD)
+5. ES6 Modules
+
+
+
+
+
+#Linting
+Options
+1. JSLint
+2. JSHint
+3. ESLint
+
+  1. Enforce Consistency
+    1. Curly brace position
+    2. confirm/alert
+    3. Trailing commas
+    4. Globals
+    5. eval
+  2. Avoid Mistakes
+    1. Extra parenthesis
+    2. Overwriting function
+    3. Assignment in conditional
+    4. Missing default case in switch
+    5. debugger / console.log
+
+Core Decisions
+1. Config format?
+2. Which built-in rules?
+3. Warning or errors?
+4. Which plugin?
+5. Use preset instead?
+
+
+
+1. Configuration File Formats(If there are multiple config files in same directory ESLint will use only one in priority order as given below)
+  1. .eslintrc.js (JavaScript, use it and export an object containing your config)
+  2. .eslintrc.yaml or .eslintrc.yml (YAML, use it todefine the config structure)
+  3. .eslintrc.json (JSON, use it to define the config structure. ESLint's json file also allow js-sytle comments )
+  4. Deprecated (use .eslintrc which can be either JSON or YAML)
+  5. package.json (create an eslintConfig property in your package.json file and define your config there)
+
+
+
+
+
+
+#Unit Testing Decisions
+1. Testing Framework
+  1. Mocha
+  2. Jasmine
+  3. Tape
+  4. QUnit
+  5. AVA
+  6. Jest
+2. Assertion library
+   An assertion is a way to declare what you expect
+   1. Chai
+   2. Should.js
+   3. expect
+3. Helper Libraries
+  1. JSDOM
+    Simulate the browser's JSDOM
+    Run DOM-related tests without a browser
+  2. Cheerio
+    JQuery for the server
+    Query virtual DOM using JQuery selector
+4. Where to run tests
+  1. Browser
+    Karma, Testem
+  2. Headless Browser
+    PhantomJS
+  3. In-memory DOM
+    JSDOM
+5. Where to place tests
+  1. Centralized
+    1. Less noise in src folder
+    2. Deployment confusion
+    3. Inertia
+  2. Alongside
+    1. Easy imports
+    2. Clear visibility
+    3. Convenient to open
+    4. No recreating folder structure
+    5. Easy file moves
+6. When to run tests
+  1. Unit Tests
+    1. Test a small unit
+    2. Often single function
+    3. Fast
+    4. Run upon save
+  2. Integration Tests
+    1. Test multi units
+    2. Often involves clicking and waiting
+    3. Slow
+    4. Often run on demand or in QA
+
+
+
+#Continuous Integration
+1. Travis
+2. Appveyor
+3. Jenkins
+4. circleCI
+5. semaphore
+6. SnapCI
