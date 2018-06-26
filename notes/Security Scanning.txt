@@ -292,3 +292,54 @@ Core Decisions
 4. circleCI
 5. semaphore
 6. SnapCI
+
+
+
+
+#HTTP Call Approaches
+1. Node
+  1. http
+  2. request
+2. Browser
+  1. XMLHttpRequest
+  2. jQuery
+  3. Fetch
+3. Node & Browser
+  1. isomorphic-fetch
+  2. xhr
+  3. SuperAgent
+  4. Axios
+
+
+
+
+#Centralized API Calls
+1. Configure all calls
+2. Handle preloader logic
+3. Handle errors
+4. Single seam for mocking
+
+
+
+
+
+#Minification
+1. Saving bandwidth
+2. Speed page load
+
+How minification work
+1. Shortens variable and function names
+2. Removes comments
+3. Removes whitespace and new lines
+4. Debug via sourcemap
+
+
+
+
+
+#Search Keyword
+1. Development env
+2. Biolerplate
+3. Starter kit
+4. Starter project
+5. Seed
